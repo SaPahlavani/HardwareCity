@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هنرآموزان پیشرو</title>
+    <link rel="icon" type="image/jpg" href="images/logo.jpg">
+    <style>
+        body {
+            font-family: 'BZar', Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            direction: rtl;
+            font-size: 16px;
+        }
+        @font-face {
+            font-family: 'BZar';
+            src: url('https://cdn.fonts.net/t/1f2a3b4c5d6e7f8g9h0i/BZar.woff') format('woff');
+        }
+        .page {
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            margin: 10px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .page.active {
+            display: block;
+        }
+        .image-placeholder {
+            width: 90%;
+            max-width: 400px;
+            height: 0;
+            padding-bottom: 60%;
+            margin: 10px auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .text-section {
+            width: 90%;
+            max-width: 400px;
+            height: 0;
+            padding-bottom: 45%;
+            margin: 10px auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: justify;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border: none;
+            box-sizing: border-box;
+            direction: rtl;
+            text-align: right;
+            font-family: 'BZar', Arial, sans-serif;
+        }
+        .logo {
+            height: 100px;
+            width: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 10px auto 20px;
+            cursor: pointer;
+            display: block;
+            position: static;
+        }
+        .intro-layout {
+            text-align: justify;
+            padding: 10px;
+        }
+        .team-member {
+            margin: 15px 0;
+            padding: 10px;
+            border-bottom: 2px solid #4CAF50;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+        .intro-text {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9e79f;
+            border: 2px solid #d4a017;
+            border-radius: 5px;
+            color: #8b4513;
+            font-style: italic;
+            text-align: justify;
+        }
+        .credits {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #d5f5e3;
+            border-radius: 5px;
+            color: #27ae60;
+            font-weight: bold;
+            text-align: justify;
+        }
+        .story-content {
+            text-align: justify;
+            padding: 15px;
+            background-color: #e8ecef;
+            border-radius: 5px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        .story-content strong {
+            color: #ff4500; /* جذاب‌تر با رنگ نارنجی مایل به قرمز */
+        }
+        .story-content a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        .story-content a:hover {
+            text-decoration: underline;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 14px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'BZar', Arial, sans-serif;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        @media (max-width: 480px) {
+            .image-placeholder {
+                padding-bottom: 70%;
+            }
+            .text-section {
+                padding-bottom: 50%;
+            }
+            button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            .logo {
+                height: 80px;
+                width: 80px;
+            }
+            .team-member {
+                font-size: 14px;
+            }
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+            .image-placeholder {
+                padding-bottom: 65%;
+            }
+            .text-section {
+                padding-bottom: 45%;
+            }
+            .logo {
+                height: 90px;
+                width: 90px;
+            }
+        }
+        @media (min-width: 769px) {
+            .image-placeholder {
+                padding-bottom: 60%;
+            }
+            .text-section {
+                padding-bottom: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo" style="background-image: url('images/logo.jpg');" onclick="window.location.href='https://example.com'"></div>
+    <div id="page1" class="page active">
+        <p style="text-align: center; font-weight: bold; color: #27ae60;">بسم الله الرحمن الرحیم</p>
+        <div class="image-placeholder" style="background-image: url('images/page1.jpg');"></div>
+        <div class="credits">ایده پرداز: فاطمه شامحمدی - پیاده سازی و اجرا: تیم هنرآموزان پیشرو</div>
+        <div class="intro-layout">
+            <h2>تیم هنرآموزان پیشرو (صنعت هوشمند پیشرو)</h2>
+            <div class="team-member"><strong>مهندس جمیله کاشانی فر</strong> - کارشناسی ارشد</div>
+            <div class="team-member"><strong>مهندس سمانه پهلوانی</strong> - دانشجو دکترا</div>
+            <div class="team-member"><strong>مهندس فاطمه شامحمدی</strong> - کارشناسی ارشد</div>
+            <div class="team-member"><strong>مهندس آزاده جوادی</strong> - دانشجو دکترا</div>
+            <p style="margin-top: 20px; color: #2980b9; font-weight: bold;">ما را به <strong>دوستانتان</strong> معرفی کنید!</p>
+        </div>
+        <div class="intro-text">
+            این کانال با هدف <strong>رشد</strong> و <strong>ارتقای حرفه‌ای</strong> معلمین و هنرآموزان عزیز ایجاد شده است.<br>
+            <strong>#با_هم_بیاموزیم</strong><br>
+            <strong>#با_هم_بسازیم</strong><br>
+            <strong>#با_هم_به_اوج_برسیم</strong><br>
+            <strong>انتشار تمام محتواهای کانال صرفاً با درج لینک کانال مجاز است.</strong>
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(2)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page2" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page2.jpg');"></div>
+        <div class="story-content">
+            👩‍🏫✨📖 شهر کامپیوتر؛ آموزش مفاهیم <strong>سخت‌افزار</strong> و <strong>حافظه</strong> در قالب قصه!<br><br>
+            ما معلم‌ها همیشه دنبال یه راه <strong>ساده</strong> و <strong>جذاب</strong> برای توضیح مفاهیم سخت به بچه‌ها هستیم.<br>
+            تا حالا امتحان کردی <strong>سخت‌افزار</strong> و <strong>حافظه</strong> رو مثل یه قصه‌ تعریف کنی؟ 🏙️<br><br>
+            اینجا کامپیوتر مثل یه شهر <strong>زنده</strong>‌ست:<br>
+            👑 فرماندارش همون <strong>CPU</strong> هست،<br>
+            🎨 نقاش شهر <strong>کارت گرافیک</strong>，<br>
+            و 🧱 آجرهای کوچیک شهر همون <strong>بیت</strong> و <strong>بایت</strong>‌ها هستن。<br><br>
+            🔹 این روش <strong>داستان‌سرایی</strong> باعث می‌شه بچه‌ها، هنرجوها و حتی <strong>مبتدی</strong>‌ها<br>
+            به جای حفظ کردن مفاهیم <strong>خشک</strong>，با <strong>خیال</strong> و <strong>تصویر</strong> یاد بگیرن。<br>
+            📚 نتیجه‌اش؟ <strong>یادگیری ماندگارتر</strong>，کلاس <strong>جذاب‌تر</strong> و دانش‌آموزان <strong>مشتاق‌تر</strong>!<br><br>
+            اگر به‌دنبال ابزار و <strong>ایده‌های خلاقانه</strong> برای تدریس خودتون هستید،<br>
+            به جمع ما بپیوندید 👉 <a href="https://t.me/sanatHooshmandPishro">@sanatHooshmandPishro</a><br>
+            <strong>#ساده_سازی</strong><br>
+            <strong>#روشهای_نوین_تدریس</strong><br>
+            <strong>#هنرآموزان_پیشرو</strong>
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(1)">صفحه قبل</button>
+            <button onclick="nextPage(3)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page3" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page3.jpg');"></div>
+        <div class="story-content">
+            📖 آموزش مفاهیم به زبان <strong>ساده</strong> – بخش سوم<br>
+            داستان شهر <strong>حافظه</strong><br><br>
+            در دل شهر کامپیوتر محله‌ای <strong>شگفت‌انگیز</strong> وجود دارد؛ محله‌ای که همه‌چیزش از آجرهای بسیار کوچک و <strong>جادویی</strong> ساخته شده. این آجرها نه از خاک و سنگ، بلکه از زبانی <strong>عجیب</strong> و <strong>رمزآلود</strong> ساخته شده‌اند: زبان <strong>صفر</strong> و <strong>یک</strong>. هر چیزی که در شهر دیده می‌شود، از <strong>بازی‌ها</strong> و <strong>فیلم‌ها</strong> گرفته تا <strong>کتاب‌ها</strong> و <strong>تصاویر</strong>，در نهایت از همین زبان <strong>عجیب</strong> شکل گرفته است.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(2)">صفحه قبل</button>
+            <button onclick="nextPage(4)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page4" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page4.jpg');"></div>
+        <div class="story-content">
+            <strong>بیت</strong> – کوچک‌ترین آجر شهر<br><br>
+            هر ساختمان در این محله با ریزترین آجرها ساخته می‌شود؛ آجرهایی به کوچکی یک <strong>چشمک نور</strong>. این آجر کوچک فقط دو حالت دارد: یا <strong>روشن</strong> است یا <strong>خاموش</strong>. یعنی یا «۱» است یا «۰». این آجرها را <strong>بیت</strong> می‌نامند. تمام آنچه در شهر وجود دارد، در نهایت بر شانه‌های همین <strong>بیت</strong>‌های کوچک ایستاده است.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(3)">صفحه قبل</button>
+            <button onclick="nextPage(5)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page5" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page5.jpg');"></div>
+        <div class="story-content">
+            <strong>بایت</strong> – واژه‌ای از آجرها<br><br>
+            وقتی هشت <strong>بیت</strong> کنار هم قرار می‌گیرند، <strong>معجزه‌ای</strong> رخ می‌دهد. آن‌ها می‌توانند <strong>معنایی</strong> بسازند؛ مثلاً یک <strong>حرف</strong> یا یک <strong>نشانه</strong>. این مجموعه را <strong>بایت</strong> می‌گویند. همان چیزی که باعث می‌شود بتوانیم <strong>نام</strong> خود را روی صفحه بنویسیم.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(4)">صفحه قبل</button>
+            <button onclick="nextPage(6)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page6" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page6.jpg');"></div>
+        <div class="story-content">
+            <strong>کیلوبایت</strong> – برگه‌ای پر از نوشته<br><br>
+            اگر هزار <strong>بایت</strong> کنار هم جمع شوند، می‌توانند یک برگه‌ی پر از چند خط <strong>نوشته</strong> را در دل خود جای دهند. این همان <strong>کیلوبایت</strong> است؛ واحدی که <strong>یادداشت‌ها</strong> و <strong>متن‌های ساده</strong> را در خود نگه می‌دارد.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(5)">صفحه قبل</button>
+            <button onclick="nextPage(7)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page7" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page7.jpg');"></div>
+        <div class="story-content">
+            <strong>مگابایت</strong> – دفترچه‌ای از صدا و تصویر<br><br>
+            وقتی هزار <strong>کیلوبایت</strong> گرد هم می‌آید، واحدی <strong>بزرگ‌تر</strong> شکل می‌گیرد: <strong>مگابایت</strong>. یک <strong>مگابایت</strong> تقریباً برابر یک میلیون <strong>بایت</strong> است. این‌جاست که <strong>موسیقی‌ها</strong> و <strong>عکس‌های باکیفیت</strong> در محله‌ی <strong>حافظه</strong> جایی برای خود پیدا می‌کنند. یک <strong>آهنگ</strong> یا یک <strong>تصویر</strong> می‌تواند در دل چند <strong>مگابایت</strong> جای بگیرد.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(6)">صفحه قبل</button>
+            <button onclick="nextPage(8)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page8" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page8.jpg');"></div>
+        <div class="story-content">
+            <strong>گیگابایت</strong> – کتابخانه‌ای عظیم<br><br>
+            اگر <strong>مگابایت</strong>‌ها جمع شوند، کتابخانه‌ای <strong>عظیم</strong> ساخته می‌شود. این دنیای <strong>بزرگ</strong> را <strong>گیگابایت</strong> می‌نامند. یک <strong>گیگابایت</strong> می‌تواند هزاران <strong>آهنگ</strong> یا صدها <strong>فیلم</strong> در خود جای دهد. درست مانند یک کتابخانه‌ی <strong>بزرگ</strong> که هر قفسه‌اش پر از <strong>داستان‌ها</strong> و <strong>تصاویر گوناگون</strong> است.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(7)">صفحه قبل</button>
+            <button onclick="nextPage(9)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page9" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page9.jpg');"></div>
+        <div class="story-content">
+            <strong>ترابایت</strong> – انبار بی‌پایان اطلاعات<br><br>
+            اما <strong>بزرگ‌ترین شگفتی</strong> این محله، <strong>ترابایت</strong> است؛ جایی که هزار <strong>گیگابایت</strong> در دل خود جا می‌گیرد. <strong>ترابایت</strong> همانند انباری <strong>بی‌انتهاست</strong> که می‌تواند دنیاهایی از <strong>اطلاعات</strong>，<strong>خاطره‌ها</strong>，<strong>بازی‌ها</strong> و <strong>فیلم‌ها</strong> را در خود <strong>ذخیره</strong> کند.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(8)">صفحه قبل</button>
+            <button onclick="nextPage(10)">صفحه بعد</button>
+        </div>
+    </div>
+    <div id="page10" class="page">
+        <div class="image-placeholder" style="background-image: url('images/page10.jpg');"></div>
+        <div class="story-content">
+            پایان سفر<br><br>
+            این‌گونه محله‌ی <strong>حافظه</strong> با کوچک‌ترین آجرها یعنی <strong>بیت</strong> آغاز می‌شود و تا <strong>عظیم‌ترین ساختمان‌ها</strong> یعنی <strong>ترابایت</strong> ادامه پیدا می‌کند. شاید روزی فراتر هم برود؛ <strong>پتابایت</strong>，<strong>اگزابایت</strong>… و دنیایی از <strong>حافظه‌های بی‌پایان</strong> که در انتظار <strong>آینده</strong> هستند.
+        </div>
+        <div class="button-container">
+            <button onclick="nextPage(9)">صفحه قبل</button>
+            <button onclick="nextPage(1)">بازگشت به صفحه اول</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        function nextPage(pageNum) {
+            document.getElementById("page" + currentPage).classList.remove("active");
+            currentPage = pageNum;
+            document.getElementById("page" + currentPage).classList.add("active");
+        }
+    </script>
+</body>
+</html>
