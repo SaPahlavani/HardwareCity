@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
     <title>هنرآموزان پیشرو</title>
     <link rel="icon" type="image/jpg" href="images/logo.jpg">
     <style>
@@ -14,6 +15,47 @@
             background-color: #f5f5f5;
             direction: rtl;
             font-size: 16px;
+        }
+        .top-bar {
+            width: 90%;
+            max-width: 500px;
+            margin: 10px auto 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .progress {
+            flex: 1 1 auto;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress > .bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4CAF50, #81C784);
+            transition: width 0.3s ease;
+        }
+        .page-counter {
+            flex: 0 0 auto;
+            font-size: 13px;
+            color: #2c3e50;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 2px 8px;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
         @font-face {
             font-family: 'BZar';
@@ -115,10 +157,70 @@
             background-color: #e8ecef;
             border-radius: 5px;
             color: #34495e;
-            line-height: 1.6;
+            line-height: 1.9;
+            font-size: 17px;
         }
         .story-content strong {
             color: #ff4500; /* جذاب‌تر با رنگ نارنجی مایل به قرمز */
+        }
+        /* Hero (page 1) */
+        .hero {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto 10px;
+            padding: 16px;
+            background: linear-gradient(180deg, #ffffff, #f1fff4);
+            border: 1px solid #d7f2da;
+            border-radius: 10px;
+        }
+        .hero-title {
+            margin: 0 0 8px 0;
+            color: #1b5e20;
+        }
+        .hero-subtitle {
+            margin: 0 0 12px 0;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin: 8px 0 12px;
+        }
+        .badge {
+            background: #e8f5e9;
+            color: #256029;
+            border: 1px solid #c8e6c9;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .btn-secondary {
+            background-color: #2E7D32;
+        }
+        details.team {
+            width: 90%;
+            max-width: 500px;
+            margin: 8px auto 0;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 8px 12px;
+            text-align: right;
+        }
+        details.team > summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #2c3e50;
         }
         .story-content a {
             color: #2980b9;
@@ -141,6 +243,16 @@
         }
         button:hover {
             background-color: #45a049;
+        }
+        .nav-arrow {
+            padding: 8px 12px;
+            font-size: 18px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .button-container {
             display: flex;
@@ -189,28 +301,43 @@
     </style>
 </head>
 <body>
-    <div class="logo" style="background-image: url('images/logo.jpg');" onclick="window.location.href='https://example.com'"></div>
+    <div class="top-bar" aria-label="پیشرفت مطالعه">
+        <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+        <div class="page-counter" id="pageCounter" aria-live="polite">صفحه 1 از 10</div>
+    </div>
+    <div class="logo" style="background-image: url('images/logo.jpg');" onclick="window.location.href='https://t.me/sanatHooshmandPishro'"></div>
     <div id="page1" class="page active">
         <p style="text-align: center; font-weight: bold; color: #27ae60;">بسم الله الرحمن الرحیم</p>
         <div class="image-placeholder" style="background-image: url('images/page1.jpg');"></div>
-        <div class="credits">ایده پرداز: فاطمه شامحمدی - پیاده سازی و اجرا: تیم هنرآموزان پیشرو</div>
-        <div class="intro-layout">
-            <h2>تیم هنرآموزان پیشرو (صنعت هوشمند پیشرو)</h2>
+        <div class="hero" aria-label="معرفی">
+            <h2 class="hero-title">هنرآموزان پیشرو</h2>
+            <p class="hero-subtitle">
+                یادگیری مفاهیم <strong>سخت‌افزار</strong> و <strong>حافظه</strong> با زبانی ساده و داستانی جذاب.
+                همراهِ معلمین و هنرآموزان برای <strong>رشد</strong>، <strong>خلاقیت</strong> و <strong>انگیزه</strong>.
+            </p>
+            <div class="badge-group">
+                <span class="badge">#با_هم_بیاموزیم</span>
+                <span class="badge">#با_هم_بسازیم</span>
+                <span class="badge">#روشهای_نوین_تدریس</span>
+                <span class="badge">#ساده_سازی</span>
+            </div>
+            <div class="cta-group">
+                <button class="btn-secondary" onclick="nextPage(2)" aria-label="شروع قصه">شروع قصه</button>
+                <a href="https://t.me/sanatHooshmandPishro" target="_blank" rel="noopener" style="text-decoration:none;">
+                    <button aria-label="کانال تلگرام">عضویت در کانال</button>
+                </a>
+            </div>
+        </div>
+        <details class="team">
+            <summary>معرفی تیم هنرآموزان پیشرو (صنعت هوشمند پیشرو)</summary>
             <div class="team-member"><strong>مهندس جمیله کاشانی فر</strong> - کارشناسی ارشد</div>
             <div class="team-member"><strong>مهندس سمانه پهلوانی</strong> - دانشجو دکترا</div>
             <div class="team-member"><strong>مهندس فاطمه شامحمدی</strong> - کارشناسی ارشد</div>
             <div class="team-member"><strong>مهندس آزاده جوادی</strong> - دانشجو دکترا</div>
-            <p style="margin-top: 20px; color: #2980b9; font-weight: bold;">ما را به <strong>دوستانتان</strong> معرفی کنید!</p>
-        </div>
-        <div class="intro-text">
-            این کانال با هدف <strong>رشد</strong> و <strong>ارتقای حرفه‌ای</strong> معلمین و هنرآموزان عزیز ایجاد شده است.<br>
-            <strong>#با_هم_بیاموزیم</strong><br>
-            <strong>#با_هم_بسازیم</strong><br>
-            <strong>#با_هم_به_اوج_برسیم</strong><br>
-            <strong>انتشار تمام محتواهای کانال صرفاً با درج لینک کانال مجاز است.</strong>
-        </div>
+            <div class="credits" style="margin-top:10px;">ایده پرداز: فاطمه شامحمدی - پیاده سازی و اجرا: تیم هنرآموزان پیشرو</div>
+        </details>
         <div class="button-container">
-            <button onclick="nextPage(2)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(2)" aria-label="صفحه بعد">→</button>
         </div>
     </div>
     <div id="page2" class="page">
@@ -233,8 +360,8 @@
             <strong>#هنرآموزان_پیشرو</strong>
         </div>
         <div class="button-container">
-            <button onclick="nextPage(1)">صفحه قبل</button>
-            <button onclick="nextPage(3)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(3)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(1)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page3" class="page">
@@ -245,8 +372,8 @@
             در دل شهر کامپیوتر محله‌ای <strong>شگفت‌انگیز</strong> وجود دارد؛ محله‌ای که همه‌چیزش از آجرهای بسیار کوچک و <strong>جادویی</strong> ساخته شده. این آجرها نه از خاک و سنگ، بلکه از زبانی <strong>عجیب</strong> و <strong>رمزآلود</strong> ساخته شده‌اند: زبان <strong>صفر</strong> و <strong>یک</strong>. هر چیزی که در شهر دیده می‌شود، از <strong>بازی‌ها</strong> و <strong>فیلم‌ها</strong> گرفته تا <strong>کتاب‌ها</strong> و <strong>تصاویر</strong>，در نهایت از همین زبان <strong>عجیب</strong> شکل گرفته است.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(2)">صفحه قبل</button>
-            <button onclick="nextPage(4)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(4)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(2)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page4" class="page">
@@ -256,8 +383,8 @@
             هر ساختمان در این محله با ریزترین آجرها ساخته می‌شود؛ آجرهایی به کوچکی یک <strong>چشمک نور</strong>. این آجر کوچک فقط دو حالت دارد: یا <strong>روشن</strong> است یا <strong>خاموش</strong>. یعنی یا «۱» است یا «۰». این آجرها را <strong>بیت</strong> می‌نامند. تمام آنچه در شهر وجود دارد، در نهایت بر شانه‌های همین <strong>بیت</strong>‌های کوچک ایستاده است.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(3)">صفحه قبل</button>
-            <button onclick="nextPage(5)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(5)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(3)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page5" class="page">
@@ -267,8 +394,8 @@
             وقتی هشت <strong>بیت</strong> کنار هم قرار می‌گیرند، <strong>معجزه‌ای</strong> رخ می‌دهد. آن‌ها می‌توانند <strong>معنایی</strong> بسازند؛ مثلاً یک <strong>حرف</strong> یا یک <strong>نشانه</strong>. این مجموعه را <strong>بایت</strong> می‌گویند. همان چیزی که باعث می‌شود بتوانیم <strong>نام</strong> خود را روی صفحه بنویسیم.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(4)">صفحه قبل</button>
-            <button onclick="nextPage(6)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(6)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(4)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page6" class="page">
@@ -278,8 +405,8 @@
             اگر هزار <strong>بایت</strong> کنار هم جمع شوند، می‌توانند یک برگه‌ی پر از چند خط <strong>نوشته</strong> را در دل خود جای دهند. این همان <strong>کیلوبایت</strong> است؛ واحدی که <strong>یادداشت‌ها</strong> و <strong>متن‌های ساده</strong> را در خود نگه می‌دارد.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(5)">صفحه قبل</button>
-            <button onclick="nextPage(7)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(7)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(5)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page7" class="page">
@@ -289,8 +416,8 @@
             وقتی هزار <strong>کیلوبایت</strong> گرد هم می‌آید، واحدی <strong>بزرگ‌تر</strong> شکل می‌گیرد: <strong>مگابایت</strong>. یک <strong>مگابایت</strong> تقریباً برابر یک میلیون <strong>بایت</strong> است. این‌جاست که <strong>موسیقی‌ها</strong> و <strong>عکس‌های باکیفیت</strong> در محله‌ی <strong>حافظه</strong> جایی برای خود پیدا می‌کنند. یک <strong>آهنگ</strong> یا یک <strong>تصویر</strong> می‌تواند در دل چند <strong>مگابایت</strong> جای بگیرد.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(6)">صفحه قبل</button>
-            <button onclick="nextPage(8)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(8)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(6)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page8" class="page">
@@ -300,8 +427,8 @@
             اگر <strong>مگابایت</strong>‌ها جمع شوند، کتابخانه‌ای <strong>عظیم</strong> ساخته می‌شود. این دنیای <strong>بزرگ</strong> را <strong>گیگابایت</strong> می‌نامند. یک <strong>گیگابایت</strong> می‌تواند هزاران <strong>آهنگ</strong> یا صدها <strong>فیلم</strong> در خود جای دهد. درست مانند یک کتابخانه‌ی <strong>بزرگ</strong> که هر قفسه‌اش پر از <strong>داستان‌ها</strong> و <strong>تصاویر گوناگون</strong> است.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(7)">صفحه قبل</button>
-            <button onclick="nextPage(9)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(9)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(7)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page9" class="page">
@@ -311,8 +438,8 @@
             اما <strong>بزرگ‌ترین شگفتی</strong> این محله، <strong>ترابایت</strong> است؛ جایی که هزار <strong>گیگابایت</strong> در دل خود جا می‌گیرد. <strong>ترابایت</strong> همانند انباری <strong>بی‌انتهاست</strong> که می‌تواند دنیاهایی از <strong>اطلاعات</strong>，<strong>خاطره‌ها</strong>，<strong>بازی‌ها</strong> و <strong>فیلم‌ها</strong> را در خود <strong>ذخیره</strong> کند.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(8)">صفحه قبل</button>
-            <button onclick="nextPage(10)">صفحه بعد</button>
+            <button class="nav-arrow" onclick="nextPage(10)" aria-label="صفحه بعد">→</button>
+            <button class="nav-arrow" onclick="nextPage(8)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
     <div id="page10" class="page">
@@ -322,18 +449,69 @@
             این‌گونه محله‌ی <strong>حافظه</strong> با کوچک‌ترین آجرها یعنی <strong>بیت</strong> آغاز می‌شود و تا <strong>عظیم‌ترین ساختمان‌ها</strong> یعنی <strong>ترابایت</strong> ادامه پیدا می‌کند. شاید روزی فراتر هم برود؛ <strong>پتابایت</strong>，<strong>اگزابایت</strong>… و دنیایی از <strong>حافظه‌های بی‌پایان</strong> که در انتظار <strong>آینده</strong> هستند.
         </div>
         <div class="button-container">
-            <button onclick="nextPage(9)">صفحه قبل</button>
-            <button onclick="nextPage(1)">بازگشت به صفحه اول</button>
+            <button class="nav-arrow" onclick="nextPage(1)" aria-label="بازگشت به صفحه اول">🏠</button>
+            <button class="nav-arrow" onclick="nextPage(9)" aria-label="صفحه قبل">←</button>
         </div>
     </div>
 
     <script>
         let currentPage = 1;
+        const totalPages = document.querySelectorAll('.page').length;
+        const progressBar = document.getElementById('progressBar');
+        const pageCounter = document.getElementById('pageCounter');
+
+        // Restore last page from storage
+        try {
+            const saved = parseInt(localStorage.getItem('story.currentPage'), 10);
+            if (!isNaN(saved) && saved >= 1 && saved <= totalPages) {
+                document.getElementById("page" + currentPage).classList.remove("active");
+                currentPage = saved;
+                document.getElementById("page" + currentPage).classList.add("active");
+            }
+        } catch (e) { /* ignore */ }
+
+        function updateUI() {
+            const pct = Math.round((currentPage - 1) / (totalPages - 1) * 100);
+            if (progressBar) progressBar.style.width = pct + '%';
+            if (pageCounter) pageCounter.textContent = 'صفحه ' + currentPage + ' از ' + totalPages;
+            try { localStorage.setItem('story.currentPage', String(currentPage)); } catch (e) {}
+        }
+
         function nextPage(pageNum) {
+            if (pageNum < 1) pageNum = 1;
+            if (pageNum > totalPages) pageNum = totalPages;
+            if (pageNum === currentPage) return;
             document.getElementById("page" + currentPage).classList.remove("active");
             currentPage = pageNum;
             document.getElementById("page" + currentPage).classList.add("active");
+            updateUI();
         }
+
+        // Keyboard navigation (RTL: Left=prev, Right=next)
+        document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'ArrowRight') { nextPage(currentPage + 1); }
+            if (ev.key === 'ArrowLeft') { nextPage(currentPage - 1); }
+        });
+
+        // Touch swipe navigation
+        let touchStartX = null;
+        document.addEventListener('touchstart', function (e) {
+            if (e.touches && e.touches.length) touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        document.addEventListener('touchend', function (e) {
+            if (touchStartX === null) return;
+            const endX = (e.changedTouches && e.changedTouches.length) ? e.changedTouches[0].clientX : touchStartX;
+            const dx = endX - touchStartX;
+            if (Math.abs(dx) > 40) {
+                if (dx < 0) { nextPage(currentPage + 1); } // swipe left -> next
+                else { nextPage(currentPage - 1); }        // swipe right -> prev
+            }
+            touchStartX = null;
+        }, { passive: true });
+
+
+        // Initialize UI
+        updateUI();
     </script>
 </body>
 </html>
